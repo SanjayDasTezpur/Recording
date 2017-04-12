@@ -20,6 +20,7 @@ public class FileUtils {
         BufferedWriter bw=null;
         try{
             File a = new File(sFileName);
+            a.createNewFile();
             fw = new FileWriter(a);
             bw = new BufferedWriter(fw);
             bw.write(sLinesToBeInserted);
