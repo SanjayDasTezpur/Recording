@@ -16,7 +16,7 @@ public class MainClass {
             System.out.println("Line "+i+":- "+ runCommand.get(i));
             sBuildLine=sBuildLine+"\n"+runCommand.get(i);
         }
-        FileUtils fu = new FileUtils("C:\\Intel\\test1.txt");
+        FileUtils fu = new FileUtils("C:\\Intel\\Sanjay\\test1.txt");
         System.out.println("Test :-- "+sBuildLine);
         fu.changeFileContent(1,sBuildLine);
     }
