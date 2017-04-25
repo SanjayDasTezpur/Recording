@@ -15,16 +15,15 @@ public class Test extends DataServer {
 
     public Test(int iPort,Object obj) {
         super(iPort,obj);
-
     }
 
     @Override
-    public Object implementation(Object args) throws IOException {
+    public Object implementation(Object... args) throws IOException {
         if(args.toString().equals("SANJAY"))
             System.out.println("This is Sanjay");
         else
             System.out.println("This is not Sanjay");
 
-        return ExecuteCommand.runCommand("cmd.exe echo "+args).toArray().toString();
+        return ExecuteCommand.runCommand("ipconfig").toString();
     }
 }

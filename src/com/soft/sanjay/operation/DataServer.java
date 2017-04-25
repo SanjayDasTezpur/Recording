@@ -46,5 +46,5 @@ public abstract class DataServer {
             listener.close();
         }
     }
-    public abstract Object implementation(Object args) throws IOException;
+    public abstract Object implementation(Object... args) throws IOException;
 }

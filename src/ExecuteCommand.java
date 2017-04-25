@@ -14,8 +14,9 @@ import java.util.List;
  * @author sanjay
  */
 public class ExecuteCommand extends OSDetector{
+    static List<String> lOutput;
     public static List<String> runCommand(String sCommand) throws IOException{
-        List<String> lOutput = new ArrayList<>();
+        lOutput = new ArrayList<>();
         String sbuildCommand="";
         try{
             if(getOS().equalsIgnoreCase("Windows")){
@@ -32,6 +33,14 @@ public class ExecuteCommand extends OSDetector{
             System.out.println("Exception caught in : "+e.getMessage());
         }
         return lOutput;
+    }
+    @Override
+    public String toString(){
+        String sOutput="";
+        for(int i=0; i<lOutput.size(); i++){
+            sOutput=sOutput + lOutput.get(i)+" \n";
+        }
+        return sOutput;
     }
 
 }

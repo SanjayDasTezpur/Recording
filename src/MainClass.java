@@ -8,7 +8,7 @@ import com.soft.sanjay.operation.DataServer;
 import java.io.IOException;
 public class MainClass {
     public static void main(String[] args) throws IOException{
-        DataServer ds = new Test(5555,"Sanjay");
+        DataServer ds = new Test(5555,"SANJAY");
         ds.startComponent();
 
     }
