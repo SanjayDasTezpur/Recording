@@ -11,25 +11,32 @@ import java.util.Date;
  * connection with that client.  Arguably just about the simplest
  * server you can write.
  */
-public class DataServer {
+public abstract class DataServer {
 
     private int mPort;
+    Object obj;
     public DataServer(int iPort) {
         mPort=iPort;
+
+    }
+    public DataServer(int iPort, Object obj) {
+        mPort=iPort;
+        this.obj=obj;
     }
 
     /**
      * Runs the server.
      */
-    public void Component() throws IOException {
+    public void startComponent() throws IOException {
         ServerSocket listener = new ServerSocket(mPort);
         try {
             while (true) {
                 Socket socket = listener.accept();
+                System.out.println("Client Connected: "+ socket.getInetAddress());
                 try {
-                    PrintWriter out =
-                            new PrintWriter(socket.getOutputStream(), true);
-                    out.println(new Date().toString());
+                    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                    out.println(implementation(obj));
+
                 } finally {
                     socket.close();
                 }
@@ -39,4 +46,5 @@ public class DataServer {
             listener.close();
         }
     }
+    public abstract Object implementation(Object args) throws IOException;
 }
